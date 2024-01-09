@@ -48,6 +48,7 @@ export default defineConfig((config) => {
         'pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
         'assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
         'utils': fileURLToPath(new URL('./src/utils', import.meta.url)),
+        'layout': fileURLToPath(new URL('./src/layout', import.meta.url)),
       }
     },
     server: {

@@ -1,4 +1,5 @@
 /* color palette from <https://github.com/vuejs/theme> */
+
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -58,6 +59,15 @@
   font-weight: normal;
 }
 
+html,
+body,
+#app,
+.common-layout,
+.el-container {
+  height: 100%;
+}
+
+
 body {
   min-height: 100vh;
   color: var(--color-text);
@@ -83,4 +93,5 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: rebeccapurple !important; */
 }
