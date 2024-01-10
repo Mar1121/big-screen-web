@@ -1,6 +1,6 @@
 <template>
     <el-form ref="loginFormRef" :model="loginForm" status-icon :rules="rules" label-width="120px" class="demo-loginForm">
-
+        <h1>虚拟大屏管理系统</h1>
         <el-form-item label="账号" prop="username">
             <el-input v-model="loginForm.username" type="usernameword" autocomplete="off" />
         </el-form-item>
@@ -10,8 +10,7 @@
         </el-form-item>
 
         <el-form-item>
-            <el-button type="primary" @click="submitForm(loginFormRef)">登录</el-button>
-
+            <el-button class="button-sub" type="primary" @click="submitForm(loginFormRef)">登录</el-button>
         </el-form-item>
     </el-form>
 </template>
@@ -66,6 +65,23 @@ const submitForm = (formEl) => {
 </script>
 <style scoped>
 .el-input {
-    width: 30%;
+    width: 200px;
+}
+
+.el-form {
+    width: 400px !important;
+    height: 200px;
+    border: 1px solid #ccc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.button-sub {
+    width: 200px;
+    background-color: aquamarine;
 }
 </style>

@@ -1,17 +1,30 @@
 <template>
     <div class="common-layout">
         <el-container>
-            <el-aside width="200px">Aside</el-aside>
-            <el-container>
-                <el-header>Header</el-header>
-                <el-main>Main</el-main>
+            <!-- 侧边栏 -->
+            <sideMenu></sideMenu>
+            <!-- 内容 -->
+            <el-container class="el-container2">
+                <!-- 顶栏 -->
+                <headerLayout></headerLayout>
+                <!-- 主体内容 -->
+                <el-main>
+                    <router-view></router-view>
+                </el-main>
             </el-container>
         </el-container>
     </div>
 </template>
-<script setup></script>
+<script setup>
+import sideMenu from 'layout/sideMenu/index.vue'
+import headerLayout from 'layout/header/index.vue'
+</script>
 
 <style scoped>
+.el-container2 {
+    flex-direction: column;
+}
+
 .el-header,
 .el-footer {
     background-color: #B3C0D1;

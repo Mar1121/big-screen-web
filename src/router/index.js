@@ -6,12 +6,20 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/home'
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: () => import('layout/index.vue')
+      // redirect: '/home',
+      component: () => import('layout/index.vue'),
+      children: [
+        {
+          path: 'projectMaster',
+          name: 'projectMaster',
+          component: () => import('pages/home/projectMaster/index.vue')
+        },
+        {
+          path: 'videoMaster',
+          name: 'videoMaster',
+          component: () => import('pages/home/videoMaster/index.vue')
+        }
+      ]
     },
     {
       path: '/login',
@@ -21,6 +29,7 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('pages/login/index.vue')
     }
+
   ]
 })
 
