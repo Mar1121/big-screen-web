@@ -7,7 +7,6 @@ let http = axios.create({
     headers: {
         "Content-Type": "application/json;charset=utf-8"
     }
-
 })
 
 // 请求拦截器

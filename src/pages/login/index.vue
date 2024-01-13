@@ -92,6 +92,10 @@ const submitForm = (formEl) => {
     margin: auto;
 }
 
+.el-form h1 {
+    text-align: center;
+}
+
 .button-sub {
     width: 200px;
     background-color: aquamarine;

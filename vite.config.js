@@ -58,7 +58,9 @@ export default defineConfig((config) => {
       proxy: {
         '/api': {
           target: env.VITE_APP_BASEURL,
-          rewrite: (path) => path.replace(/^\/api/, '')
+          rewrite: (path) => path.replace(/^\/api/, ''),
+          // 跨域配置
+          changeOrigin: true
         }
       }
     }
