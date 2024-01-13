@@ -19,6 +19,7 @@
 import router from '@/router';
 import { reactive, ref } from 'vue'
 import { useRoute } from 'vue-router';
+import { loginApi } from '@/api/login.js'
 const loginFormRef = ref()
 // 校验用户名的函数
 const valiDateUsername = (rule, value, callback) => {
@@ -48,12 +49,23 @@ const rules = reactive({
 })
 // 提交表单的方法
 const submitForm = (formEl) => {
-    console.log(formEl);
+    // console.log(formEl);
     if (!formEl) return
-    formEl.validate((valid) => {
+    formEl.validate(async (valid) => {
         if (valid) {
             console.log('submit!')
-            router.push('/home')
+            try {
+                let res = await loginApi({
+                    username: loginForm.username,
+                    password: loginForm.password
+                })
+                console.log(res);
+            }
+            catch (e) {
+
+            }
+            // 登录成功后跳转到首页
+            // router.push('/home')
         } else {
             console.log('error submit!')
             return false

@@ -1,3 +1,3 @@
 import http from '@/utils/request.js'
 
-export const loginApi = data => http.post('/api/login', data)
+export const loginApi = params => http.get('/api/v1/vbs/login', { params })

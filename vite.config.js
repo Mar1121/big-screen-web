@@ -13,6 +13,7 @@ export default defineConfig((config) => {
   // loadEnv获取环境
   // 
   let env = loadEnv(config.mode, process.cwd(), '')
+  // console.log(env.VITE_APP_BASEURL);
   return {
     base: './',
     build: {
@@ -56,7 +57,7 @@ export default defineConfig((config) => {
       open: true,
       proxy: {
         '/api': {
-          target: 'env.VITE_APP_BASEURL',
+          target: env.VITE_APP_BASEURL,
           rewrite: (path) => path.replace(/^\/api/, '')
         }
       }
