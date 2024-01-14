@@ -20,6 +20,10 @@ import router from '@/router';
 import { reactive, ref } from 'vue'
 import { useRoute } from 'vue-router';
 import { loginApi } from '@/api/login.js'
+import useUserStore from '@/stores/user.js'
+import { ElMessage } from 'element-plus'
+
+// let userStore = useUserStore()
 const loginFormRef = ref()
 // 校验用户名的函数
 const valiDateUsername = (rule, value, callback) => {
@@ -53,6 +57,7 @@ const submitForm = (formEl) => {
     if (!formEl) return
     formEl.validate(async (valid) => {
         if (valid) {
+
             console.log('submit!')
             try {
                 let res = await loginApi({
@@ -60,12 +65,27 @@ const submitForm = (formEl) => {
                     password: loginForm.password
                 })
                 console.log(res);
+                console.log(res.data);
+                // 存储token
+                if (res.data.code === 0) {
+                    sessionStorage.setItem('token', res.data.data.token)
+                    // 登录成功后跳转到首页
+                    ElMessage({
+                        // 持续时间
+                        duration: 2000,
+                        message: '登录成功',
+                        type: 'success',
+                    })
+                    // console.log(111);
+                    router.push('/')
+                } else {
+                    ElMessage.error('登陆失败')
+                }
             }
             catch (e) {
 
             }
-            // 登录成功后跳转到首页
-            // router.push('/home')
+
         } else {
             console.log('error submit!')
             return false

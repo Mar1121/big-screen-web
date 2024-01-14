@@ -11,9 +11,13 @@ app.use(createPinia())
 
 // 全局的路由前置钩子
 router.beforeEach((to, from) => {
-    console.log(to, 'to', from, 'from');
+    // console.log(to, 'to', from, 'from');
     // 判断sessionStorage有没有token
-    // return { path: '/login' }
+
+    let token = sessionStorage.getItem('token')
+    if (!token && to.path !== '/login') {
+        return { path: '/login' }
+    }
 })
 app.use(router)
 

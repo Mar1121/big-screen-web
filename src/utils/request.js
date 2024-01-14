@@ -11,7 +11,9 @@ let http = axios.create({
 
 // 请求拦截器
 http.interceptors.request.use(config => {
-    console.log(import.meta.env.VITE_APP_AXIOS_BASE), 111;
+    console.log(config);
+    // config.headers['authorization'] = sessionStorage.getItem('token')
+    // console.log(import.meta.env.VITE_APP_AXIOS_BASE), 111;
     return config
 })
 
